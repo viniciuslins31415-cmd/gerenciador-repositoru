@@ -7,7 +7,7 @@ function Home() {
     return (
         <div className={styles.container}>
             <Link to="desc">
-                <img src="v3logo.png" alt="logo" />
+                <img src="logofin.png" alt="logo" />
             </Link>
             <p>Centralize suas experiências com filmes, séries e livros em um só
             lugar.</p>

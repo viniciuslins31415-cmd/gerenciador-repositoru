@@ -7,7 +7,7 @@ function Header() {
     return (
         <header className={styles.header}>
             <Link to="/" className={styles.logo}>
-                <img src="v3logohea.png" alt="Repositoru"/>
+                <img src="logofin1.png" alt="Repositoru"/>
             </Link>
 
             <ul className={styles.socialIcons}>
@@ -17,7 +17,7 @@ function Header() {
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/viniciuslins31415-cmd/gerenciador-repositoru" target="_blank" rel="noreferrer">
                         <FaGithub />
                     </a>
                 </li>

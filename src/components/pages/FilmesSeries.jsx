@@ -1,7 +1,7 @@
-import { useState } from "react";
-import Modal from "../layout/Modal";
-import styles from "./FilmesSeries.module.css";
-import { IoMdAddCircle } from "react-icons/io";
+import { useState } from "react"
+import Modal from "../layout/Modal"
+import styles from "./FilmesSeries.module.css"
+import { IoMdAddCircle } from "react-icons/io"
 
 function FilmesSeries() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,6 +9,7 @@ function FilmesSeries() {
   return (
     <section className={styles.page}>
       <header className={styles.header}>
+        <h1>🎥 Aventuras Cinéfilas</h1>
         <h2>Registre aqui seus filmes e séries assistidos</h2>
       </header>
 
@@ -30,7 +31,7 @@ function FilmesSeries() {
         <p>Conteúdo da janela aqui.</p>
       </Modal>
     </section>
-  );
+  )
 }
 
-export default FilmesSeries;
+export default FilmesSeries

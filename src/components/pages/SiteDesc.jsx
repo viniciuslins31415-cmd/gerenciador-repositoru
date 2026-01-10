@@ -3,7 +3,7 @@ import styles from './SiteDesc.module.css'
 function SiteDesc() {
     return (
         <div className={styles.cont}>
-            <img src="v3logo.png" alt="Logo do Repositoru" />
+            <img src="logofin.png" alt="Logo do Repositoru" />
             <h2>Sobre o Repositoru</h2>
             <p>
                 Repositoru é uma plataforma pessoal de gerenciamento e organização de

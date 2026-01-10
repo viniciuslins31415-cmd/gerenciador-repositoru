@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   width: 100%;
-  background-color: #f7f9fc;
+  background-color: #000C18;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,7 @@
 }
 
 .container p {
-  color:#1f2937;
+  color:#ffffff;
 }
 
 img:hover {
@@ -26,7 +26,7 @@ img:hover {
   
 .subtitle {
   font-size: 1rem;
-  color: #6b7280;
+  color: #ffffff;
   margin-bottom: 2.5rem;
   text-align: center;
   max-width: 480px;

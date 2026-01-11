@@ -13,12 +13,21 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
     useEffect(() => {
-        if (!nome || tipo !== "Filme") return
+        if (!nome || !tipo) return
 
         const controller = new AbortController()
 
+        const endpoint =
+            tipo === "Filme"
+                ? "movie"
+                : tipo === "Serie"
+                ? "tv"
+                : null
+
+        if (!endpoint) return
+
         fetch(
-            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${nome}`,
+            `https://api.themoviedb.org/3/search/${endpoint}?api_key=${API_KEY}&language=pt-BR&query=${nome}`,
             { signal: controller.signal }
         )
             .then(res => res.json())
@@ -83,11 +92,11 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
                                     <li
                                     key={filme.id}
                                     onClick={() => {
-                                    setNome(filme.title)
+                                    setNome(filme.name)
                                     setFilmes([])
                                     }}
                                     >
-                                        {filme.title}
+                                        {filme.name}
                                     </li>
                                 ))}
                             </ul>

@@ -14,7 +14,7 @@ function Home() {
             <div className={styles.content}>
                 <LinkCard
                 to="filmesseries"
-                title="🎬 Aventuras Cinéfilas"
+                title="🎬 Aventuras Cinematográficas"
                 desc="Registre filmes e séries, avalie, marque gêneros e escreva suas interpretações."
                 />
 

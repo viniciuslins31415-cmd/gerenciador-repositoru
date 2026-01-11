@@ -4,12 +4,12 @@ import styles from "./FilmesSeries.module.css"
 import { IoMdAddCircle } from "react-icons/io"
 
 function FilmesSeries() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false) 
 
   return (
     <section className={styles.page}>
       <header className={styles.header}>
-        <h1>🎥 Aventuras Cinéfilas</h1>
+        <h1>🎥 Aventuras Cinematográficas</h1>
         <h2>Registre aqui seus filmes e séries assistidos</h2>
       </header>
 
@@ -26,9 +26,10 @@ function FilmesSeries() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        title="Adicionar filme/série..."
+        val1="Filme"
+        val2="Série"
       >
-        <h2>Novo registro</h2>
-        <p>Conteúdo da janela aqui.</p>
       </Modal>
     </section>
   )

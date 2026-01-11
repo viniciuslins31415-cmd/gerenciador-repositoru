@@ -31,7 +31,7 @@
 }
 
 .socialIcons a {
-  color: #b8bcc8;
+  color: #F93D00;
   font-size: 1.4rem;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
 }
 
 .socialIcons a:hover {
-  color: #eaeaf0;
+  color: #0E92FC;
   transform: translateY(-2px);
 }
 

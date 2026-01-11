@@ -26,9 +26,10 @@ function Livros() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        title="Adicionar livro..."
+        val1="Livro"
+        val2="História em quadrinhos"
       >
-        <h2>Novo registro</h2>
-        <p>Conteúdo da janela aqui.</p>
       </Modal>
     </section>
   )

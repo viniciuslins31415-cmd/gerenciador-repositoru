@@ -1,7 +1,32 @@
-import styles from './Modal.module.css'
+import { useEffect, useState } from "react"
 
-function Modal({isOpen, onClose, children}) {
+import styles from './Modal.module.css'
+import Select from './Select'
+
+function Modal({isOpen, onClose, children, title, text, val1, val2}) {
     if (!isOpen) return null
+
+    const [tipo, setTipo] = useState("")
+    const [nome, setNome] = useState("")
+    const [filmes, setFilmes] = useState([])
+
+    const API_KEY = import.meta.env.VITE_TMDB_API_KEY
+
+    useEffect(() => {
+        if (!nome || tipo !== "Filme") return
+
+        const controller = new AbortController()
+
+        fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=pt-BR&query=${nome}`,
+            { signal: controller.signal }
+        )
+            .then(res => res.json())
+            .then(data => setFilmes(data.results || []))
+            .catch(() => {})
+
+        return () => controller.abort()
+    }, [nome, tipo])
 
     return (
         <div className={styles.overlay}>
@@ -9,8 +34,66 @@ function Modal({isOpen, onClose, children}) {
                 <button className={styles.closeBtn} onClick={onClose}>
                     ×
                 </button>
-                <h1>Adicionar filmes/série</h1>
-                <p>Selecione o gênero:</p>
+                <h2>{title}</h2>
+                <p>{text}</p>
+                <Select
+                label="Tipo de conteúdo"
+                name="tipoConteudo"
+                value={tipo}
+                onChange={(e) => setTipo(e.target.value)}
+                options={[
+                    { value: val1, label: val1 },
+                    { value: val2, label: val2 },
+                ]}
+                />
+
+                {tipo && (
+                    <div className={styles.field}>
+                        <label htmlFor="nome">
+                        Nome do {tipo.toLowerCase()}
+                        </label>
+
+                        <input
+                        id="nome"
+                        type="text"
+                        placeholder={"Digite o nome"}
+                        value={nome}
+                        onChange={(e) => setNome(e.target.value)}
+                        />
+
+                        {tipo === "Filme" && filmes.length > 0 && (
+                            <ul className={styles.suggestions}>
+                                {filmes.slice(0, 5).map(filme => (
+                                    <li
+                                    key={filme.id}
+                                    onClick={() => {
+                                    setNome(filme.title)
+                                    setFilmes([])
+                                    }}
+                                    >
+                                        {filme.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        {tipo === "Série" && filmes.length > 0 && (
+                            <ul className={styles.suggestions}>
+                                {filmes.slice(0, 5).map(filme => (
+                                    <li
+                                    key={filme.id}
+                                    onClick={() => {
+                                    setNome(filme.title)
+                                    setFilmes([])
+                                    }}
+                                    >
+                                        {filme.title}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     )

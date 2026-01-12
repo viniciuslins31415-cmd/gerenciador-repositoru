@@ -20,7 +20,7 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
         const endpoint =
             tipo === "Filme"
                 ? "movie"
-                : tipo === "Serie"
+                : tipo === "Série"
                 ? "tv"
                 : null
 
@@ -70,37 +70,22 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
                         onChange={(e) => setNome(e.target.value)}
                         />
 
-                        {tipo === "Filme" && filmes.length > 0 && (
+                        {(tipo === "Filme" || tipo === "Série") && filmes.length > 0 && (
                             <ul className={styles.suggestions}>
-                                {filmes.slice(0, 5).map(filme => (
+                                {filmes.slice(0, 5).map(item => (
                                     <li
-                                    key={filme.id}
-                                    onClick={() => {
-                                    setNome(filme.title)
-                                    setFilmes([])
-                                    }}
+                                        key={item.id}
+                                        onClick={() => {
+                                            setNome(item.title || item.name)
+                                            setFilmes([])
+                                        }}
                                     >
-                                        {filme.title}
+                                        {item.title || item.name}
                                     </li>
                                 ))}
                             </ul>
                         )}
 
-                        {tipo === "Série" && filmes.length > 0 && (
-                            <ul className={styles.suggestions}>
-                                {filmes.slice(0, 5).map(filme => (
-                                    <li
-                                    key={filme.id}
-                                    onClick={() => {
-                                    setNome(filme.name)
-                                    setFilmes([])
-                                    }}
-                                    >
-                                        {filme.name}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
                     </div>
                 )}
             </div>

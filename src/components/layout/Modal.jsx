@@ -3,12 +3,13 @@ import { useEffect, useState } from "react"
 import styles from './Modal.module.css'
 import Select from './Select'
 
-function Modal({isOpen, onClose, children, title, text, val1, val2}) {
+function Modal({isOpen, onClose, children, title, text, val1, val2, src, alt}) {
     if (!isOpen) return null
 
     const [tipo, setTipo] = useState("")
     const [nome, setNome] = useState("")
     const [filmes, setFilmes] = useState([])
+    const [selecionado, setSelecionado] = useState(null)
 
     const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
@@ -43,8 +44,9 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
                 <button className={styles.closeBtn} onClick={onClose}>
                     ×
                 </button>
-                <h2>{title}</h2>
-                <p>{text}</p>
+                <img src={src} alt={alt} />
+                <h1>{title}</h1>
+                <h2>{text}</h2>
                 <Select
                 label="Tipo de conteúdo"
                 name="tipoConteudo"
@@ -72,18 +74,44 @@ function Modal({isOpen, onClose, children, title, text, val1, val2}) {
 
                         {(tipo === "Filme" || tipo === "Série") && filmes.length > 0 && (
                             <ul className={styles.suggestions}>
-                                {filmes.slice(0, 5).map(item => (
+                                {filmes.slice(0, 10).map(item => (
                                     <li
                                         key={item.id}
                                         onClick={() => {
                                             setNome(item.title || item.name)
+                                            setSelecionado(item)
                                             setFilmes([])
                                         }}
+
                                     >
                                         {item.title || item.name}
                                     </li>
                                 ))}
                             </ul>
+                        )}
+                        {selecionado && (
+                            <div className={styles.preview}>
+                                <img
+                                src={
+                                selecionado.poster_path
+                                ? `https://image.tmdb.org/t/p/w200${selecionado.poster_path}`
+                                : "/no-image.png"
+                                }
+                                alt={selecionado.title || selecionado.name}
+                                />
+
+                                <div className={styles.info}>
+                                    <h3>{selecionado.title || selecionado.name}</h3>
+
+                                    {selecionado.release_date && (
+                                    <p>Ano: {selecionado.release_date.slice(0, 4)}</p>
+                                    )}
+
+                                    {selecionado.first_air_date && (
+                                    <p>Ano: {selecionado.first_air_date.slice(0, 4)}</p>
+                                    )}
+                                </div>
+                            </div>
                         )}
 
                     </div>

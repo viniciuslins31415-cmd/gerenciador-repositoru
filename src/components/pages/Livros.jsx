@@ -29,6 +29,8 @@ function Livros() {
         title="Adicionar livro..."
         val1="Livro"
         val2="História em quadrinhos"
+        src="bookicon.png"
+        alt="bookicon"
       >
       </Modal>
     </section>

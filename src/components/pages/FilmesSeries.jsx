@@ -26,6 +26,8 @@ function FilmesSeries() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        src="movieicon.png"
+        alt="filmIcon"
         title="Adicionar filme/série..."
         val1="Filme"
         val2="Série"

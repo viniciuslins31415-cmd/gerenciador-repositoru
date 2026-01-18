@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './components/pages/Home'
-import Livros from './components/pages/Livros'
-import FilmesSeries from './components/pages/FilmesSeries'
+import Livros from './components/book/Livros'
+import FilmesSeries from './components/movie/FilmesSeries'
 import SiteDesc from './components/pages/SiteDesc'
 import Header from './components/layout/Header'
 

@@ -1,0 +1,77 @@
+.page {
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgb(0, 0, 0.7)),
+    url('/moviebg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 10px;
+  text-shadow: 0 40px 10px rgb(0, 0, 0);
+}
+
+.header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2096f69a;
+  text-shadow: 0 4px 1px rgba(255, 255, 255, 0.046);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  background-color: #001B36;
+  color: #ffffff;
+
+  border: 1px solid #2095F6;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.addButton svg {
+  font-size: 1.3rem;
+}
+
+.addButton:hover {
+  background-color: #000C18;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.addButton:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 768px) {
+  .actions {
+    justify-content: center;
+  }
+
+  .header h2 {
+    text-align: center;
+  }
+}

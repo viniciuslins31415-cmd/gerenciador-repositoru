@@ -1,7 +1,11 @@
 .page {
   padding: 2rem;
   min-height: calc(100vh - 80px);
-  background-color: #000C18;
+  background-image:
+    linear-gradient(rgba(28, 10, 0, 0.514), rgb(0, 0, 0)),
+    url('/bookbg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .header {
@@ -18,7 +22,7 @@
 .header h2 {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #2096f69a;
+  color: #f93e00ba;
 }
 
 .actions {
@@ -32,10 +36,10 @@
   align-items: center;
   gap: 0.5rem;
 
-  background-color: #001B36;
+  background-color: #581600;
   color: #ffffff;
 
-  border: 1px solid #2095F6;
+  border: 1px solid #F93D00;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
 
@@ -43,8 +47,6 @@
   font-weight: 500;
 
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease,
-    box-shadow 0.1s ease;
 }
 
 .addButton svg {
@@ -52,7 +54,7 @@
 }
 
 .addButton:hover {
-  background-color: #000C18;
+  background-color: #390e00;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 

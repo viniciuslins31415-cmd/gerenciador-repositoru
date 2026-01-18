@@ -1,7 +1,7 @@
 .container {
   min-height: 100vh;
   width: 100%;
-  background-color: #000C18;
+  background: linear-gradient(90deg, #00182b9a, #320c00ba);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,13 +17,13 @@
 }
 
 .container p {
-  color:#ffffff;
+  color: #ffffff;
 }
 
 img:hover {
   transform: translateY(-6px);
 }
-  
+
 .subtitle {
   font-size: 1rem;
   color: #ffffff;

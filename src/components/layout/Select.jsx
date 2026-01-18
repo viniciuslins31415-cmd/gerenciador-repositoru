@@ -1,22 +1,18 @@
 import styles from './Select.module.css'
 
-function Select({ label, name, value, onChange, options }) {
+function Select({text, name, options, handleOnChange, value}) {
   return (
-    <div className={styles.select_wrapper}>
-      <label htmlFor={name}>{label}</label>
-
-      <select
-        name={name}
-        id={name}
-        value={value}
-        onChange={onChange}
+    <div>
+      <label htmlFor={name}>{name}</label>
+      <select 
+      name={name} 
+      id={name}
+      onChange={handleOnChange}
+      value={value || ''}
       >
-        <option value="">Selecione uma opção</option>
-
+        <option>selecione um item</option>
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
+          <option value={option.id} key={option.id} >{option.name}</option>
         ))}
       </select>
     </div>

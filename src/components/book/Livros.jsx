@@ -1,16 +1,16 @@
 import { useState } from "react"
 import Modal from "../layout/Modal"
-import styles from "./FilmesSeries.module.css"
+import styles from "./Livros.module.css"
 import { IoMdAddCircle } from "react-icons/io"
 
-function FilmesSeries() {
-  const [isModalOpen, setIsModalOpen] = useState(false) 
+function Livros() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className={styles.page}>
       <header className={styles.header}>
-        <h1>🎥 Aventuras Cinematográficas</h1>
-        <h2>Registre aqui seus filmes e séries assistidos</h2>
+        <h1>📙 Experiências Literárias</h1>
+        <h2>Gerencie suas leituras aqui</h2>
       </header>
 
       <div className={styles.actions}>
@@ -19,22 +19,22 @@ function FilmesSeries() {
           onClick={() => setIsModalOpen(true)}
         >
           <IoMdAddCircle />
-          Adicionar Filme/Serie
+          Adicionar Livro
         </button>
       </div>
 
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        src="movieicon.png"
-        alt="filmIcon"
-        title="Adicionar filme/série..."
-        val1="Filme"
-        val2="Série"
+        title="Adicionar livro..."
+        val1="Livro"
+        val2="História em quadrinhos"
+        src="bookicon.png"
+        alt="bookicon"
       >
       </Modal>
     </section>
   )
 }
 
-export default FilmesSeries
+export default Livros
